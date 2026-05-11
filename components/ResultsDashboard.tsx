@@ -228,7 +228,7 @@ export default function ResultsDashboard({ result, fileName, onReset }: Props) {
       </div>
 
       {/* Interactive Action Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 action-cards-container">
         {actionCards.map((a, i) => (
           <div
             key={a.id}

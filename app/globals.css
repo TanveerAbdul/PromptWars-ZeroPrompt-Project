@@ -113,6 +113,47 @@ body {
   @apply fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-md animate-fade-in;
 }
 
-.modal-content {
-  @apply glass-card w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl p-8 animate-scale-in relative shadow-2xl;
+/* Print Styles for Download Report */
+@media print {
+  nav, 
+  button, 
+  .modal-backdrop, 
+  footer, 
+  #results > div:first-child,
+  .action-cards-container {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .glass-card {
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+    color: black !important;
+  }
+
+  .text-gradient {
+    background: none !important;
+    -webkit-text-fill-color: black !important;
+    color: black !important;
+    font-weight: bold;
+  }
+
+  #results {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .grid {
+    display: block !important;
+  }
+
+  .grid > * {
+    margin-bottom: 2rem !important;
+  }
 }
