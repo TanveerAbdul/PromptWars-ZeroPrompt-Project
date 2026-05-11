@@ -6,153 +6,96 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-06B6D4?logo=tailwindcss)](https://tailwindcss.com)
 [![Gemini AI](https://img.shields.io/badge/Gemini-1.5_Flash-8B5CF6?logo=google)](https://ai.google.dev)
+[![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)](https://vercel.com)
 
 ---
 
-## 🎯 Problem Statement
+## 🎯 The Mission
+Traditional AI tools require users to master "Prompt Engineering" — a barrier that excludes millions. **PromptLess AI** is built on the philosophy that **AI should just work.** No prompts, no text boxes, no friction. Just your trajectory and immediate, intelligent results.
 
-Traditional AI tools require users to write prompts — a skill most people don't have. This excludes millions from the benefits of AI. Users type something vague, get a bad result, and conclude "AI doesn't work."
-
-## 💡 Solution
-
-**PromptLess AI** removes prompting entirely. Users upload their résumé PDF. That's it. Gemini AI automatically infers intent, extracts context, and generates a complete career analysis — no text input required.
-
----
-
-## ✨ Features
-
-| Feature | Description |
-|---|---|
-| 🎯 Role Detection | AI predicts your most likely job title |
-| 📊 ATS Score | Measures how ATS-friendly your résumé is |
-| 💪 Strengths Analysis | Highlights your top professional strengths |
-| 🔍 Skills Gap | Identifies what you're missing for your target role |
-| 🚀 Tech Recommendations | Suggests technologies to learn next |
-| 🎤 Interview Questions | Generates custom, relevant interview Q&A |
-| 🗺️ Career Roadmap | 3-phase roadmap with actionable milestones |
-| ✏️ Resume Tips | Specific, actionable improvement suggestions |
+## 💡 The Solution
+**PromptLess AI** infers user intent through **contextual analysis**. By simply uploading a résumé PDF, the system automatically:
+1. **Analyzes** your professional history.
+2. **Infers** your target career path.
+3. **Generates** a deep-dive dashboard with zero user input.
 
 ---
 
-## 🏗️ Architecture — Zero-Prompt Design
+## ✨ Key Features
 
-```
-User uploads PDF (no text input required)
-        ↓
-Next.js API Route (server-side)
-        ↓
-pdf-parse → extracts raw text
-        ↓
-Hidden System Prompt constructed programmatically
-        ↓
-Gemini 1.5 Flash → structured JSON analysis
-        ↓
-Beautiful card dashboard rendered
+### 🏢 Executive Dashboard
+- **ATS Ranking**: Real-time compatibility score with modern hiring systems.
+- **Role Detection**: AI-powered inference of your current trajectory and target seniority.
+- **Executive Summary**: A punchy, AI-generated professional pitch.
+
+### 🛠️ Career Deep-Dives (Interactive Modals)
+- **ATS Strategy**: Specific keyword gaps and formatting fixes to beat the bots.
+- **Interview Prep**: Role-specific Technical & HR questions with contextual hints.
+- **LinkedIn Bio**: Ready-to-copy headlines and summaries optimized for visibility.
+- **30-Day Roadmap**: A phase-based mastery plan with actionable learning milestones.
+
+---
+
+## 🏗️ How It Works (Zero-Prompt Engine)
+
+```mermaid
+graph TD
+    A[User Uploads PDF] --> B[Server-side PDF Extraction]
+    B --> C[Zero-Prompt Context Builder]
+    C --> D[Gemini 1.5 Flash Inference]
+    D --> E[Structured JSON Extraction]
+    E --> F[Premium Interactive Dashboard]
 ```
 
-> **The user never writes a prompt. All AI context is inferred from the resume.**
+1. **Context over Prompts**: Instead of asking the user what they want, we extract their entire professional context from the PDF.
+2. **Programmatic Intent**: We use a hidden system architecture to guide Gemini 1.5 Flash into analyzing the resume without user-provided instructions.
+3. **Structured Response**: The AI returns a precise JSON schema that powers our high-fidelity React components.
 
 ---
 
 ## 🛠️ Tech Stack
-
 - **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **AI**: Google Gemini 1.5 Flash (`@google/generative-ai`)
-- **PDF Parsing**: `pdf-parse` (server-side)
-- **Hosting**: Vercel (recommended)
+- **AI**: Google Gemini 1.5 Flash (via `@google/generative-ai`)
+- **Styling**: Vanilla CSS + Tailwind (Custom Glassmorphism System)
+- **Animations**: CSS Keyframes + Smooth Transitions
+- **Deployment**: Vercel
 
 ---
 
-## 🚀 Setup Instructions
+## 🚀 Setup & Installation
 
-### 1. Clone the repository
+### 1. Requirements
+- Node.js 18+
+- Gemini API Key ([Get one here](https://aistudio.google.com))
 
+### 2. Installation
 ```bash
-git clone https://github.com/your-username/PromptWars-ZeroPrompt-Project.git
+git clone https://github.com/TanveerAbdul/PromptWars-ZeroPrompt-Project.git
 cd PromptWars-ZeroPrompt-Project
-```
-
-### 2. Install dependencies
-
-```bash
 npm install
 ```
 
-### 3. Configure environment variables
-
-```bash
-cp .env.example .env.local
+### 3. Environment Config
+Create a `.env.local` file:
+```env
+GEMINI_API_KEY=your_key_here
 ```
 
-Edit `.env.local` and add your Gemini API key:
-
-```
-GEMINI_API_KEY=your_gemini_api_key_here
-```
-
-> Get your free Gemini API key at [aistudio.google.com](https://aistudio.google.com)
-
-### 4. Run locally
-
+### 4. Run
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
+---
 
-### 5. Deploy to Vercel
-
-```bash
-npx vercel --prod
-```
-
-Add `GEMINI_API_KEY` as an environment variable in your Vercel project settings.
+## 📸 Demo Flow
+1. **Landing**: User arrives at a minimal, futuristic hero section.
+2. **Upload**: Drag and drop a resume PDF (try the one in the `/examples` folder).
+3. **Analysis**: Watch the "Inference Engines" work through 6 distinct analysis phases.
+4. **Insights**: Explore the interactive cards, click for deep-dives, and download your final report.
 
 ---
 
-## 📁 Project Structure
-
-```
-├── app/
-│   ├── globals.css          # Global styles & animations
-│   ├── layout.tsx           # Root layout & SEO metadata
-│   ├── page.tsx             # Main page (state machine)
-│   └── api/analyze/
-│       └── route.ts         # PDF parse + Gemini API handler
-├── components/
-│   ├── HeroSection.tsx      # Hero with gradient & animations
-│   ├── UploadSection.tsx    # Drag-and-drop PDF upload
-│   ├── LoadingState.tsx     # Animated loading steps
-│   └── ResultsDashboard.tsx # Full analysis dashboard
-├── types/
-│   └── index.ts             # TypeScript interfaces
-├── .env.example             # Environment variable template
-├── next.config.mjs
-├── tailwind.config.ts
-└── tsconfig.json
-```
-
----
-
-## 📸 Screenshots
-
-> *(Add screenshots here after running the app)*
-
----
-
-## 🔮 Future Scope
-
-- [ ] LinkedIn summary auto-generator
-- [ ] Cover letter generation
-- [ ] Job description matching (upload JD + resume)
-- [ ] PDF download of full report
-- [ ] Multi-language support
-- [ ] Voice-based résumé input
-
----
-
-## 👥 Team
-
-Built for **PromptWars @ Ascent 2026** under Problem Statement 3: *Zero-Prompt AI — AI That Just Works*.
+## 🏆 PromptWars x Ascent 2026
+Built by **Abdul Tanveer J** for the Google PromptWars competition.
+**Problem Statement 3**: Zero-Prompt AI — AI That Just Works.
